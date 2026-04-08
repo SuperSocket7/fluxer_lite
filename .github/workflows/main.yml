@@ -13,6 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # submoduleの取得
+      - name: submodule update
+        run: git submodule update --init --recursive
+
       # Flutter のインストール
       - name: Install Flutter
         run: git clone https://github.com/flutter/flutter.git # ターミナルでこれが実行されるイメージ
