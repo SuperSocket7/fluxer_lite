@@ -12,10 +12,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # submoduleの取得
-      - name: submodule update
-        run: git submodule update --init --recursive
+        with:
+          ref: "master"
+          submodules: recursive
 
       # Flutter のインストール
       - name: Install Flutter
@@ -29,8 +28,15 @@ jobs:
       - name: Download Flutter dependencies packages
         run: flutter pub get
 
-      # ipaのビルド
-      - name: Build ipa
-        run: flutter build ipa
+      # ビルド
+      - name: Build
+        run: flutter build ios --no-codesign --release
+
+      # ipaのパッケージング
+      - name: Create ipa
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r FluxerLite.ipa Payload
 
 # https://zenn.dev/pressedkonbu/articles/254ca2fc3cd1ab を参考に
