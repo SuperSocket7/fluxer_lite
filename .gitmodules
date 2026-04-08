@@ -1,0 +1,3 @@
+[submodule "zstd_dart"]
+	path = zstd_dart
+	url = https://github.com/M0n7y5/zstd_dart.git
