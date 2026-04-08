@@ -43,7 +43,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: IPA Package
+          name: FluxerLite
           path: FluxerLite.ipa
 
 # https://zenn.dev/pressedkonbu/articles/254ca2fc3cd1ab を参考に
