@@ -22,6 +22,13 @@ class FluxerApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Color(0xFF413CDD)),
       ),
+      builder: (context, child) {
+        return SafeArea(
+          top: false, // ノッチエリアも避けたい場合はtrueに設定
+          bottom: true, // システムナビゲーションバーとの重複を防ぎます
+          child: child!,
+        );
+      },
       home: const RootView(),
     );
   }
