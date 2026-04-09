@@ -11,7 +11,7 @@ class GuildList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final guilds = ref.watch(guildListProvider);
 
-    return Expanded(
+    return Container(
       child: guilds.when(
         data: (data) {
           return ListView.builder(
@@ -24,8 +24,8 @@ class GuildList extends ConsumerWidget {
                   padding: EdgeInsets.only(top: 9),
                   child: Divider(
                     height: 2,
-                    indent: 18,
-                    endIndent: 18,
+                    indent: 20,
+                    endIndent: 20,
                     color: Color(0xFFD3D5D8)
                   )
                 );

@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
+import "../providers.dart";
 import "../widgets/guildList.dart";
 import "../widgets/channelList.dart";
 
@@ -36,6 +37,14 @@ class TopPage extends ConsumerWidget {
           child: Center(child: Text("メッセージ"))
         )
       ],
+      onPageChanged: (int index) {
+        // indexが1(メッセージ欄なら隠す)
+        if (index == 1) {
+          ref.read(showNavStateProvider.notifier).state = false;
+        } else {
+          ref.read(showNavStateProvider.notifier).state = true;
+        }
+      },
     );
   }
 }
